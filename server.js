@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 //view engine is a template engine. We are setting that to be ejs (embedded javascript in html). There are a lot of view engines, we are setting it to be ejs
 app.set('view engine', 'ejs');
 console.log(__dirname); //directory name
-app.set('views', path.join(__dirname, 'views')); //path jois views folder with server.js
+app.set('views', path.join(__dirname, 'views')); //path jois views folder with server.js, connecting the views folder
 
 //we want to display these products and connect it to views. This may be used to connect db to views
 const products = ["alphaai","testBeta","gamma"]; 
