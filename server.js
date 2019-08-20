@@ -19,11 +19,13 @@ app.use(bodyParser.json()); //this gives you the additional option of sending yo
 //routers 
 const indexRouter = require('./routes/index');
 const jobsRouter = require('./routes/jobs');
+const productsRouter = require('./routes/products')
 
 
 //routes
 app.use('/', indexRouter); 
 app.use('/jobs', jobsRouter);
+app.use('/products', productsRouter)
 
 
 //start server 
