@@ -1,0 +1,42 @@
+<!-- views folder has all ejs files -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Products Page</h1>
+    <!-- displaying all the products as it is -->
+    <%= products %>
+
+    <!-- displaying products as a list -->
+    <ul>
+        <% for(let i=0; i<products.length; i++){ %>
+        <div>
+            <li><%=products[i]%>
+                <button> all </button>
+            </li>
+        </div>
+
+        <% } %>
+    </ul>
+
+    <!-- create a form and it should add it to the array -->
+    <br>
+    <!-- form action basically looks for the path "/" after someone has submitted the product -->
+    <form action="/", method="POST">
+        Product name: <br>
+        <input type="text" name="product"><br>
+        <!-- the names that are assigned will match with schema names when we connect to a db -->
+        <input type="submit" value="Submit">
+    </form>
+
+
+</body>
+
+</html>
