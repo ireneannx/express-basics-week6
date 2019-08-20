@@ -12,28 +12,19 @@ app.set('view engine', 'ejs');
 console.log(__dirname); //directory name
 app.set('views', path.join(__dirname, 'views')); //path jois views folder with server.js, connecting the views folder
 
-//we want to display these products and connect it to views. This may be used to connect db to views
-const products = ["alphaai","testBeta","gamma"]; 
-
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false })); //this to send the data through the form you built
 app.use(bodyParser.json()); //this gives you the additional option of sending your data as a json object.
 
-//routes (basic)
-app.get('/', (req,res)=>{
-    res.render('index',{products:products}); //render will always look within the views file 
-    //second parameter in .render makes products accesible in index.ejs so it can run the script written wihin <% %>
-})
+//routers 
+const indexRouter = require('./routes/index');
+const jobsRouter = require('./routes/jobs');
 
-app.post('/',(req,res)=>{
-    products.push(req.body.product);
-    res.redirect('/')
-})
 
-app.get('/home/:id', (req,res)=>{
-    let user = req.params.id;
-    res.send(`hello ${user}`)
-});
+//routes
+app.use('/', indexRouter); 
+app.use('/jobs', jobsRouter);
+
 
 //start server 
 app.listen(PORT, ()=>{
