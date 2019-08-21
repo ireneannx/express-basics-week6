@@ -16,6 +16,9 @@ app.set('views', path.join(__dirname, 'views')); //path jois views folder with s
 app.use(bodyParser.urlencoded({ extended: false })); //this to send the data through the form you built
 app.use(bodyParser.json()); //this gives you the additional option of sending your data as a json object.
 
+//link styles
+app.use(express.static(path.join(__dirname, 'public')))
+
 //routers 
 const indexRouter = require('./routes/index');
 const jobsRouter = require('./routes/jobs');

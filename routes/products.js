@@ -7,8 +7,15 @@ const db = require('../models')
 //path -/products 
 //method -GET all products (mongoose method: @find)
 router.get('/', (req,res)=>{
+    db.PRODUCTS.find() //this is a promise 
+    .then((resdata)=>{res.render('products', {data:resdata})}) //we are sending resdata (json format) from db.products.find as the variable 'data' to be accessed in products.ejs 
+    //.then((data)=>res.json(data))
+    .catch((err)=>res.send(err))
+})
+
+router.get('/api', (req,res)=>{
     db.PRODUCTS.find()
-    .then((data)=>res.json(data))
+    .then((data)=>{res.json(data)})
     .catch((err)=>res.send(err))
 })
 
@@ -17,7 +24,8 @@ router.get('/', (req,res)=>{
 router.post('/', (req,res)=>{
     console.log(req.body)
     db.PRODUCTS.create(req.body) //this returns a promise 
-    .then((data)=> res.json(data))
+    .then(res.redirect('/products'))
+    //.then((data)=> res.json(data))
     .catch((err)=> res.send(err))
 })
 

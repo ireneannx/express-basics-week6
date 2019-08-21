@@ -1,0 +1,28 @@
+<%- include partials/header %>
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<hr />
+<div class="container ">
+<% for(let i=0;i<data.length; i++) { %>
+<div class="media icard">
+    <img class="mr-3 img-responsive" src="<%=data[i].productImage%>" alt="Generic placeholder image">
+    <div class="media-body">
+      <a href=""><h5 class="mt-0"><%= data[i].name %></h5></a>
+      <p class="mt-0"><%= data[i].subcribersCount %></p>
+      <p class="mt-0"><%= data[i].description %></p>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+<form action='/products' method="POST">
+  <input name="name" placeholder="enter name">
+  <input name="subcribersCount" placeholder="enter count">
+  <input name="description" placeholder="enter description">
+  <input name="productImage" placeholder="paste url">
+  <button type="submit">submit</button>
+</form>
+
+
+
+<%- include partials/footer %>
