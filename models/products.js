@@ -8,7 +8,11 @@ const productSchema = new mongoose.Schema({
     },
     productImage: String,
     description : String,
-    subcribersCount : Number
+    subscribersCount : Number,
+    createdOn: {
+        type: Date,
+        default: Date.now()
+    }
 })
 
 const PRODUCTS = mongoose.model('PRODUCTS', productSchema); 

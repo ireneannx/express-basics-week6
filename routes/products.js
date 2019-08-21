@@ -32,8 +32,8 @@ router.post('/', (req,res)=>{
 //path -/products:id
 //get a single product
 router.get('/:id', (req,res)=>{
-    db.PRODUCTS.find({_id:req.params.id})
-    .then((data)=>res.json(data))
+    db.PRODUCTS.findOne({_id:req.params.id}) //note: find returns an array, findOne returns an object
+    .then((resdata)=>res.render('details',{data:resdata}))
     .catch((err)=>res.send(err))
 })
 
@@ -41,7 +41,7 @@ router.get('/:id', (req,res)=>{
 //path - /product/:id
 router.put('/:id',(req,res)=>{
     db.PRODUCTS.findOneAndUpdate({_id:req.params.id},req.body)
-    .then((data)=> res.json(data))
+    .then(()=> res.redirect(`/products/${req.params.id}`))
     .catch((err)=> res.send(err))
 })
 

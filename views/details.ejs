@@ -1,0 +1,21 @@
+<h6> details </h6>
+<%= data%>
+
+<br>
+
+<!-- you can only do post and get http methods on client side. cant directly put delete -->
+
+<!-- to delete -->
+<!-- make sure method comes before action -->
+<form method="POST" action="/products/<%= data._id%>?_method=DELETE" >
+<button type="submit"> delete </button>
+</form>
+
+<!-- to update-->
+<form method="POST" action="/products/<%= data._id%>?_method=PUT" >
+    <input name="name" value="<%= data.name %>" placeholder="enter name">
+    <input name="subscribersCount" value="<%= data.subscribersCount %>" placeholder="enter count">
+    <input name="description" value="<%= data.description %>" placeholder="enter description">
+    <input name="productImage" value="<%= data.productImage %>"placeholder="paste url">
+    <button type="submit"> edit </button>
+</form>

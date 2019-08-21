@@ -4,6 +4,7 @@ const app = express();
 const PORT = 3000;
 const path = require('path');
 const bodyParser = require('body-parser');
+var methodOverride = require('method-override')
 
 
 //view engine
@@ -15,6 +16,9 @@ app.set('views', path.join(__dirname, 'views')); //path jois views folder with s
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false })); //this to send the data through the form you built
 app.use(bodyParser.json()); //this gives you the additional option of sending your data as a json object.
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
 
 //link styles
 app.use(express.static(path.join(__dirname, 'public')))

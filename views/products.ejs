@@ -7,9 +7,10 @@
 <div class="media icard">
     <img class="mr-3 img-responsive" src="<%=data[i].productImage%>" alt="Generic placeholder image">
     <div class="media-body">
-      <a href=""><h5 class="mt-0"><%= data[i].name %></h5></a>
-      <p class="mt-0"><%= data[i].subcribersCount %></p>
+      <a href="/products/<%= data[i]._id %>"><h5 class="mt-0"><%= data[i].name %></h5></a>
+      <p class="mt-0"><%= data[i].subscribersCount %></p>
       <p class="mt-0"><%= data[i].description %></p>
+      <button> upvote </button>
     </div>
   </div>
   <% } %>
