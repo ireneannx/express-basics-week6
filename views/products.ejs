@@ -10,7 +10,15 @@
       <a href="/products/<%= data[i]._id %>"><h5 class="mt-0"><%= data[i].name %></h5></a>
       <p class="mt-0"><%= data[i].subscribersCount %></p>
       <p class="mt-0"><%= data[i].description %></p>
-      <button> upvote </button>
+
+      <!-- for upvoting
+      <button onclick="getId(id)" id="<%= data[i]._id %>" type="submit">  upvote </button> -->
+
+      <!-- for upvoting -->
+      <form method="POST" action="/products/upvote/<%=data[i]._id%>?_method=PUT">
+        <button> upvote </button>
+      </form>
+
     </div>
   </div>
   <% } %>
@@ -27,3 +35,12 @@
 
 
 <%- include partials/footer %>
+
+<script>
+function getId(e){
+//console.log(e)
+return e;
+
+}
+
+</script>

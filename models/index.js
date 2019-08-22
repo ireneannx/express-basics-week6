@@ -7,3 +7,6 @@ mongoose.connect('mongodb://localhost:27017/dbname',{useNewUrlParser: true});
 //import the collection(model) PRODUCTS from ./products 
 //console.log(require('./products'));
 module.exports.PRODUCTS = require('./products');
+
+module.exports.User = require('./users');
+module.exports.Posts = require('./posts')

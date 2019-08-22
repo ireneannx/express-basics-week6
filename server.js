@@ -27,12 +27,16 @@ app.use(express.static(path.join(__dirname, 'public')))
 const indexRouter = require('./routes/index');
 const jobsRouter = require('./routes/jobs');
 const productsRouter = require('./routes/products')
+const postsRouter = require('./routes/posts');
+const userRouter = require('./routes/users')
 
 
 //routes
 app.use('/', indexRouter); 
 app.use('/jobs', jobsRouter);
 app.use('/products', productsRouter)
+app.use('/posts', postsRouter)
+app.use('/users', userRouter)
 
 
 //start server 

@@ -45,6 +45,15 @@ router.put('/:id',(req,res)=>{
     .catch((err)=> res.send(err))
 })
 
+//upvote a product
+//path- /product
+router.put('/upvote/:id',(req,res)=>{
+    db.PRODUCTS.findOneAndUpdate({_id:req.params.id}, {$inc:{subscribersCount:1}},{new: true})
+    .then(()=>{res.redirect('/products')})
+    .catch((err)=>res.send(err))
+    
+})
+
 //Delete -/products/:id
 //delete a product -findOneAndRemove
 router.delete('/:id', (req,res)=>{
